@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//==================== ADMIN ====================
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', 'Image\ImageManageController@index');
+
+    // Manage Image
+    Route::group(['namespace' => 'Image'], function() {
+        Route::resource('/image', 'ImageManageController');
+        Route::post('/upload/image', 'ImageManageController@uploadImage')->name('upload.image');
+    });
+});

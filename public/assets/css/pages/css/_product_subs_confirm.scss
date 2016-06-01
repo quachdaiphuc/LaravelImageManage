@@ -1,0 +1,50 @@
+/* START Common CSS */
+.subscribe-info {
+  ul {
+    li {
+      border-bottom: 1px dashed #979797;
+    }
+  }
+}
+/* END Common CSS */
+
+@media (min-width: 768px) {
+  .subscribe-info {
+    ul {
+      li {
+        padding: 30px 0;
+        font-size: 20px;
+      }
+    }
+  }
+}
+/* END @media (min-width: 767px) */
+
+@media (max-width: 767px) {
+
+  @media (min-width: 414px) and (max-width: 767px) {
+    .subscribe-info {
+      ul {
+        li {
+          padding: 30px 0;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  /* END @media (min-width: 414px) and (max-width: 767px) */
+
+
+  @media (max-width: 413px) {
+    .subscribe-info {
+      ul {
+        li {
+          padding: 23px 0;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  /* @media (max-width: 413px) */
+}
+/* END @media (max-width: 767px) */

@@ -1,0 +1,65 @@
+/* START Common CSS */
+
+/* END Common CSS */
+
+@media (min-width: 768px) {
+  .subscribe-complete {
+    .text1 {
+      font-size: 27px;
+      padding: 40px 0 20px;
+    }
+
+    .text2 {
+      font-size: 18px;
+      margin-bottom: 80px;
+    }
+
+    .form-group {
+      margin-bottom: 60px;
+    }
+  }
+}
+/* END @media (min-width: 767px) */
+
+@media (max-width: 767px) {
+
+  @media (min-width: 414px) and (max-width: 767px) {
+    .subscribe-complete {
+      .text1 {
+        font-size: 27px;
+        padding: 40px 0 20px;
+      }
+
+      .text2 {
+        font-size: 18px;
+        margin-bottom: 80px;
+      }
+
+      .form-group {
+        margin-bottom: 60px;
+      }
+    }
+  }
+  /* END @media (min-width: 414px) and (max-width: 767px) */
+
+
+  @media (max-width: 413px) {
+    .subscribe-complete {
+      .text1 {
+        font-size: 18px;
+        padding: 40px*320px/414px 0 20px*320px/414px;
+      }
+
+      .text2 {
+        font-size: 14px;
+        margin-bottom: 80px*320px/414px;
+      }
+
+      .form-group {
+        margin-bottom: 60px*320px/414px;
+      }
+    }
+  }
+  /* @media (max-width: 413px) */
+}
+/* END @media (max-width: 767px) */

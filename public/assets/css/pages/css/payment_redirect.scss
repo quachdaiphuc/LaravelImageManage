@@ -1,0 +1,31 @@
+/* START Common CSS */
+/* END Common CSS */
+
+@media (min-width: 768px) {
+  .loading {
+    margin-top: 200px;
+    padding: 15px;
+  }
+}
+/* END @media (min-width: 767px) */
+
+@media (max-width: 767px) {
+
+  @media (min-width: 414px) and (max-width: 767px) {
+    .loading {
+      margin-top: 200px;
+      padding: 15px;
+    }
+  }
+  /* END @media (min-width: 414px) and (max-width: 767px) */
+
+
+  @media (max-width: 413px) {
+    .loading {
+      margin-top: 150px;
+      padding: 15px;
+    }
+  }
+  /* @media (max-width: 413px) */
+}
+/* END @media (max-width: 767px) */
