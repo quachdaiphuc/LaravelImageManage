@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Image;
 
+use Business\ImageBusiness;
 use Common\UploadFileHelper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -10,6 +11,12 @@ use Illuminate\Support\Facades\Response;
 
 class ImageManageController extends Controller
 {
+    private $imageBusiness;
+
+    function __construct(ImageBusiness $imageBusiness) {
+        $this->imageBusiness = $imageBusiness;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +24,8 @@ class ImageManageController extends Controller
      */
     public function index()
     {
-        return view('admin.image.index');
+        $files = $this->imageBusiness->getAllFileImage();
+        return view('admin.image.index', compact('files'));
     }
 
     /**
@@ -27,7 +35,7 @@ class ImageManageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.image.create');
     }
 
     /**
@@ -86,12 +94,16 @@ class ImageManageController extends Controller
         //
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function uploadImage(Request $request) {
+
         $filejson = new \stdClass();
+
         foreach($request->file('files') as $file) {
-
             $image = $imagePath = UploadFileHelper::UploadFile($file);
-
             //set array data to display image
             $filejson->files[] = $image;
         }

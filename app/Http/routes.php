@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 //==================== ADMIN ====================
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/', 'Image\ImageManageController@index');
+    Route::get('/', 'Image\ImageManageController@create');
 
     // Manage Image
     Route::group(['namespace' => 'Image'], function() {

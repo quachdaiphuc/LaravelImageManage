@@ -7,7 +7,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8"/>
-    <title>{{ trans('label.admin.manage_page') }}</title>
+    <title>Laravel image management</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta name='_csrf' content="{{ csrf_token() }}" />
@@ -72,8 +72,8 @@
     <script src="{{ asset('assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/global/plugins/fullcalendar/fullcalendar.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/global/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('assets/js/sms_datatable.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/global/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="{{ asset('assets/css/pages/scripts/components-pickers.js') }}"></script>
@@ -87,10 +87,11 @@
 
     <script>
         jQuery(document).ready(function() {
+            Metronic.init(); // init metronic core components
             Layout.init(); // init layout
             Demo.init(); // init demo features
         });
-
+        var SITE_ROOT = '{{ url('/') }}';
     </script>
     <!-- END JAVASCRIPTS -->
     @yield('pageJs')

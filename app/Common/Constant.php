@@ -9,7 +9,7 @@ interface Constant {
     const CONST_NUMBER = '100000000';
 
     //Upload path
-    const UPLOAD_PATH = 'assets/uploads/';
+    const UPLOAD_PATH = '/assets/uploads/';
 
     //Error message
     const ERROR_MSG = 'errorMessage';

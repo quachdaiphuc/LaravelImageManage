@@ -10,10 +10,11 @@ namespace Common;
 class UploadFileHelper
 {
     public static function UploadFile($file){
-        $destination = public_path('/assets/uploads');
         $path = Constant::UPLOAD_PATH;
+        $destination = public_path($path);
         $extension = $file->getClientOriginalExtension();
         $fileName = str_random(10) . '.' . $extension;
+
         $fileInfo = [
             'path' => $path . $fileName,
             'url'=> url('/') . '/' . $path . $fileName,
