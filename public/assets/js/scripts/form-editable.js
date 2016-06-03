@@ -132,7 +132,7 @@ var FormEditable = function () {
             
             // init editable toggler
             $('#enable').click(function () {
-                $('#user .editable').editable('toggleDisabled');
+                $('#list-image .editable').editable('toggleDisabled');
             });
 
             // init 
@@ -145,7 +145,7 @@ var FormEditable = function () {
             });
 
             // handle editable elements on hidden event fired
-            $('#user .editable').on('hidden', function (e, reason) {
+            $('#list-image .editable').on('hidden', function (e, reason) {
                 if (reason === 'save' || reason === 'nochange') {
                     var $next = $(this).closest('tr').next().find('.editable');
                     if ($('#autoopen').is(':checked')) {
@@ -153,7 +153,23 @@ var FormEditable = function () {
                             $next.editable('show');
                         }, 300);
                     } else {
+                        //get new text
+                        var text = $('.editableform input').val();
+                        var extension = $('[name=extension]').val();
+
                         $next.focus();
+                        //change image name
+                        $.ajax({
+                            url : SITE_ROOT + '/admin/change/image',
+                            type : 'POST',
+                            data : {
+                                name : text,
+                                extension : extension
+                            },
+                            success : function(data) {
+                                alert(data);
+                            }
+                        });
                     }
                 }
             });

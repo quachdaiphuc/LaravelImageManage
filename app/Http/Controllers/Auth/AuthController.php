@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\LoginRequest;
+use Business\UserBusiness;
+use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -30,14 +34,17 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $userBusiness;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserBusiness $userBusiness)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->userBusiness = $userBusiness;
     }
 
     /**
@@ -68,5 +75,28 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showLogin() {
+        return view('admin.login');
+    }
+
+    public function doLogin(LoginRequest $request) {
+        // Get user by username and password
+        $user = $this->userBusiness->getUserByUserNameAndPassWord($request->input('username'), $request->input('password'));
+        if (!empty($user)) {
+            // Login
+            Auth::loginUsingId($user->id, $request->has('remember'));
+            return redirect()->route('admin.top');
+        }else {
+            $errors = ['Your username or password is not correct !'];
+            // If login fail, redirect back to login page with error message
+            return redirect()->back()->withErrors($errors)->withInput();
+        }
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Image;
 
 use Business\ImageBusiness;
+use Common\Constant;
 use Common\UploadFileHelper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -108,5 +109,21 @@ class ImageManageController extends Controller
             $filejson->files[] = $image;
         }
         return json_encode($filejson);
+    }
+
+    public function changeImageName(Request $request) {
+        $newName = trim($request->name);
+        $extension = trim($request->extension);
+        $message = '';
+        $path = public_path() . Constant::UPLOAD_PATH . $newName.'.'.$extension;
+
+        if(file_exists($path)) {
+            $message = 'file is exist';
+        } else {
+            $message = 'Success';
+        }
+
+        return $message;
+
     }
 }

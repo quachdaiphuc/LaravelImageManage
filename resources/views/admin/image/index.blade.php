@@ -170,7 +170,6 @@
     			<div class="row">
     				<div class="col-md-12">
     					<label><input type="checkbox" id="inline">&nbsp;Inline editing</label>
-    					<button id="enable" class="btn blue">Enable / Disable</button>
     					<hr>
     				</div>
     			</div>
@@ -182,21 +181,30 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Url</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
     					<tbody>
     					@foreach($files as $file)
                             <tr>
-                                <td style="width:15%">
+                                <td style="width:10%">
                                      <img width="80px" height="auto" src="{{ asset('assets/uploads/') . '/' . $file['basename'] }}" alt=""/>
                                 </td>
-                                <td style="width:50%">
-                                    <a href="javascript:;" class="image" data-type="text" data-pk="1" data-original-title="Enter username">
-                                    {{$file['filename']}} </a>
+                                <td style="width:30%">
+                                    <a href="javascript:;" class="image" data-type="text" data-pk="1" data-original-title="Enter image name">
+                                    {{$file['filename']}} </a>.{{$file['extension']}}
+                                    <input type="hidden" name="extension" value="{{$file['extension']}}"/>
                                 </td>
-                                <td style="width:35%">
+                                <td style="width:40%">
                                     <span class="text-muted">
-                                    Simple text field </span>
+                                    {{ asset('assets/uploads/') . '/' . $file['basename'] }} </span>
+                                </td>
+                                <td style="width: 10%" class="text-center">
+                                    <button type="button" class="btn red delete">
+                                        <i class="fa fa-trash"></i>
+                                        <span>Delete</span>
+                                    </button>
+
                                 </td>
                             </tr>
                         @endforeach
