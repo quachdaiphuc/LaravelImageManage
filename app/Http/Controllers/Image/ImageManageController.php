@@ -112,18 +112,26 @@ class ImageManageController extends Controller
     }
 
     public function changeImageName(Request $request) {
-        $newName = trim($request->name);
-        $extension = trim($request->extension);
-        $message = '';
+        //$data = $request->all();
+        $newName = trim($request->value);
+        $oldName = trim($request->pk);
+        $extension = explode('.', $oldName)[1];
+        $fileExist = false;
+        $message = 'Success';
+
+        $oldFilePath = public_path() . Constant::UPLOAD_PATH . $oldName;
         $path = public_path() . Constant::UPLOAD_PATH . $newName.'.'.$extension;
 
         if(file_exists($path)) {
-            $message = 'file is exist';
+            $fileExist = true;
+            $message = 'File is exist';
         } else {
-            $message = 'Success';
+            rename($oldFilePath, $path);
         }
 
-        return $message;
-
+        return response()->json([
+            'success' => $fileExist,
+            'msg' => $message
+        ]);
     }
 }

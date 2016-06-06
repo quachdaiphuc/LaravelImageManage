@@ -111,11 +111,13 @@ var FormEditable = function () {
 
         //editables element samples 
         $('.image').editable({
-            url: '/post',
+            url: SITE_ROOT + '/admin/change/image',
             type: 'text',
-            pk: 1,
             name: 'image',
-            title: 'Enter image name'
+            title: 'Enter image name',
+            success: function(response) {
+                alert(response.msg) ;
+            }
         });
 
     }
@@ -153,23 +155,7 @@ var FormEditable = function () {
                             $next.editable('show');
                         }, 300);
                     } else {
-                        //get new text
-                        var text = $('.editableform input').val();
-                        var extension = $('[name=extension]').val();
-
                         $next.focus();
-                        //change image name
-                        $.ajax({
-                            url : SITE_ROOT + '/admin/change/image',
-                            type : 'POST',
-                            data : {
-                                name : text,
-                                extension : extension
-                            },
-                            success : function(data) {
-                                alert(data);
-                            }
-                        });
                     }
                 }
             });

@@ -191,9 +191,9 @@
                                      <img width="80px" height="auto" src="{{ asset('assets/uploads/') . '/' . $file['basename'] }}" alt=""/>
                                 </td>
                                 <td style="width:30%">
-                                    <a href="javascript:;" class="image" data-type="text" data-pk="1" data-original-title="Enter image name">
+                                    <a href="javascript:;" class="image" data-type="text" data-pk="{{$file['basename']}}" data-original-title="Enter image name">
                                     {{$file['filename']}} </a>.{{$file['extension']}}
-                                    <input type="hidden" name="extension" value="{{$file['extension']}}"/>
+
                                 </td>
                                 <td style="width:40%">
                                     <span class="text-muted">
