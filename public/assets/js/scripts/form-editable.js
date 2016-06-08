@@ -110,13 +110,25 @@ var FormEditable = function () {
         $.fn.editable.defaults.url = '/post';
 
         //editables element samples 
-        $('.image').editable({
+        var a = $('.image').editable({
             url: SITE_ROOT + '/admin/change/image',
             type: 'text',
             name: 'image',
             title: 'Enter image name',
-            success: function(response) {
-                alert(response.msg) ;
+            display: function(value, response) {
+                return false;
+            },
+            success: function(response, newValue) {
+                var id = $(this).data('pk');
+                id = id.replace('.', '_');
+                if(response.success == true) {
+                    $('.' + id).addClass('text-danger');
+                } else {
+                    $('.' + id).removeClass('text-danger');
+                    $('.' + id).addClass('text-info');
+                    $(this).html(newValue);
+                }
+                $('.' + id).html(response.msg);
             }
         });
 

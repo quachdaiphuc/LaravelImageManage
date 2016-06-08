@@ -134,4 +134,12 @@ class ImageManageController extends Controller
             'msg' => $message
         ]);
     }
+
+    public function deleteImage(Request $request) {
+        $name = $request->name;
+        $path = public_path() . Constant::UPLOAD_PATH . $name;
+        if(file_exists($path)) {
+            unlink($path);
+        }
+    }
 }

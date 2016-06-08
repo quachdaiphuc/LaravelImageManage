@@ -73,6 +73,7 @@
     <script src="{{ asset('assets/global/plugins/fullcalendar/fullcalendar.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/global/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('assets/global/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/global/plugins/bootbox/bootbox.min.js') }}"></script>
     <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->

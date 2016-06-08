@@ -191,16 +191,17 @@
                                      <img width="80px" height="auto" src="{{ asset('assets/uploads/') . '/' . $file['basename'] }}" alt=""/>
                                 </td>
                                 <td style="width:30%">
-                                    <a href="javascript:;" class="image" data-type="text" data-pk="{{$file['basename']}}" data-original-title="Enter image name">
+                                    <a href="javascript:;" class="image" id="{{str_replace('.', '_', $file['basename'])}}" data-type="text" data-pk="{{$file['basename']}}" data-original-title="Enter image name">
                                     {{$file['filename']}} </a>.{{$file['extension']}}
-
+                                    <br/>
+                                    <span class="{{str_replace('.', '_', $file['basename'])}}"></span>
                                 </td>
                                 <td style="width:40%">
                                     <span class="text-muted">
                                     {{ asset('assets/uploads/') . '/' . $file['basename'] }} </span>
                                 </td>
                                 <td style="width: 10%" class="text-center">
-                                    <button type="button" class="btn red delete">
+                                    <button type="button" onclick="deleteImage('{{str_replace('.', '_', $file['basename'])}}')" class="btn red delete">
                                         <i class="fa fa-trash"></i>
                                         <span>Delete</span>
                                     </button>
