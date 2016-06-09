@@ -44,7 +44,6 @@ function deleteImage(basename) {
                 label: "Cancel",
                 className: "btn-danger",
                 callback: function() {
-
                 }
             }
         }

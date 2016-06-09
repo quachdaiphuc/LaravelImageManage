@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\LoginRequest;
 use Business\UserBusiness;
-use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -43,7 +42,7 @@ class AuthController extends Controller
      */
     public function __construct(UserBusiness $userBusiness)
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => 'doLogout']);
         $this->userBusiness = $userBusiness;
     }
 
@@ -95,7 +94,7 @@ class AuthController extends Controller
         }
     }
 
-    public function logout() {
+    public function doLogout() {
         Auth::logout();
         return redirect()->route('login');
     }

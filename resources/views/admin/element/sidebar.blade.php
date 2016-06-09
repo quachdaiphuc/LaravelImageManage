@@ -37,11 +37,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="">Upload image</a>
+                        <a href="{{route('image.index')}}">List image</a>
                     </li>
                     <li>
-                        <a href="">Dropzone</a>
+                        <a href="{{route('image.create')}}">Upload image</a>
                     </li>
+
                 </ul>
             </li>
 

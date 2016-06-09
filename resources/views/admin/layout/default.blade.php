@@ -22,7 +22,6 @@
     <link href="{{ asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/global/plugins/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
     <link href="{{ asset('assets/global/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -65,25 +64,16 @@
     <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="{{ asset('assets/global/plugins/bootstrap-daterangepicker/moment.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/global/plugins/fullcalendar/fullcalendar.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/global/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('assets/global/plugins/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('assets/global/plugins/bootbox/bootbox.min.js') }}"></script>
     <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src="{{ asset('assets/css/pages/scripts/components-pickers.js') }}"></script>
     <script src="{{ asset('assets/global/scripts/metronic.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/css/layout/scripts/layout.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/css/layout/scripts/quick-sidebar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/css/layout/scripts/demo.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/global/plugins/bootbox/bootbox.min.js') }}"></script>
-    <script src="{{ asset('assets/js/combodate.js') }}"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
 
     <script>

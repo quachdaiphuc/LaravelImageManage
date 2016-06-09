@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin'], function() {
         // Manage Image
         Route::group(['namespace' => 'Image'], function() {
             Route::get('/image', 'ImageManageController@index')->name('image.index');
+            Route::get('/image/create', 'ImageManageController@create')->name('image.create');
             Route::post('/upload/image', 'ImageManageController@uploadImage')->name('upload.image');
             Route::post('/change/image', 'ImageManageController@changeImageName');
             Route::post('/deleteImage', 'ImageManageController@deleteImage');
