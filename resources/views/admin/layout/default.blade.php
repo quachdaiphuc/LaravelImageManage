@@ -32,8 +32,6 @@
     <link href="{{ asset('assets/global/css/plugins.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/css/layout/css/layout.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/css/layout/css/themes/darkblue.css') }}" rel="stylesheet" type="text/css" id="style_color"/>
-    <link href="{{ asset('assets/css/layout/css/custom.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/css/custom/admin/custom-admin.css') }}" rel="stylesheet" type="text/css"/>
     <script src="{{ asset('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
     <!-- END THEME STYLES -->
     <script>

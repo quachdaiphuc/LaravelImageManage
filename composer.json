@@ -18,12 +18,12 @@
     },
     "autoload": {
         "classmap": [
-            "database",
-            "app/Common",
-            "app/Business"
+            "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Business\\": "app/Business",
+            "Common\\": "app/Common"
         }
     },
     "autoload-dev": {

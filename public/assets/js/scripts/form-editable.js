@@ -118,6 +118,11 @@ var FormEditable = function () {
             display: function(value, response) {
                 return false;
             },
+            validate:function(value){
+                var re = new RegExp("[a-z0-9_-]$");
+                if(re.test(value) == false)
+                    return 'Invalid value, please input just alpha or numberic';
+            },
             success: function(response, newValue) {
                 var id = $(this).data('pk');
                 id = id.replace('.', '_');

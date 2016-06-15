@@ -8,13 +8,13 @@ use Common\UploadFileHelper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Response;
 
 class ImageManageController extends Controller
 {
     private $imageBusiness;
 
-    function __construct(ImageBusiness $imageBusiness) {
+    function __construct(ImageBusiness $imageBusiness)
+    {
         $this->imageBusiness = $imageBusiness;
     }
 
@@ -42,7 +42,7 @@ class ImageManageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,7 +53,7 @@ class ImageManageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -64,7 +64,7 @@ class ImageManageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -75,8 +75,8 @@ class ImageManageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -87,7 +87,7 @@ class ImageManageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -99,11 +99,12 @@ class ImageManageController extends Controller
      * @param Request $request
      * @return string
      */
-    public function uploadImage(Request $request) {
+    public function uploadImage(Request $request)
+    {
 
         $filejson = new \stdClass();
 
-        foreach($request->file('files') as $file) {
+        foreach ($request->file('files') as $file) {
             $image = $imagePath = UploadFileHelper::UploadFile($file);
             //set array data to display image
             $filejson->files[] = $image;
@@ -111,7 +112,8 @@ class ImageManageController extends Controller
         return json_encode($filejson);
     }
 
-    public function changeImageName(Request $request) {
+    public function changeImageName(Request $request)
+    {
         //$data = $request->all();
         $newName = trim($request->value);
         $oldName = trim($request->pk);
@@ -120,9 +122,9 @@ class ImageManageController extends Controller
         $message = 'Success';
 
         $oldFilePath = public_path() . Constant::UPLOAD_PATH . $oldName;
-        $path = public_path() . Constant::UPLOAD_PATH . $newName.'.'.$extension;
+        $path = public_path() . Constant::UPLOAD_PATH . $newName . '.' . $extension;
 
-        if(file_exists($path)) {
+        if (file_exists($path)) {
             $fileExist = true;
             $message = 'File is exist';
         } else {
@@ -135,10 +137,15 @@ class ImageManageController extends Controller
         ]);
     }
 
-    public function deleteImage(Request $request) {
+    /**
+     * delete image
+     * @param Request $request
+     */
+    public function deleteImage(Request $request)
+    {
         $name = $request->name;
         $path = public_path() . Constant::UPLOAD_PATH . $name;
-        if(file_exists($path)) {
+        if (file_exists($path)) {
             unlink($path);
         }
     }
