@@ -119,9 +119,10 @@ var FormEditable = function () {
                 return false;
             },
             validate:function(value){
-                var re = new RegExp("[a-z0-9_-]$");
-                if(re.test(value) == false)
-                    return 'Invalid value, please input just alpha or numberic';
+                var re = new RegExp("[A-Za-z0-9_]");
+                if(re.test(value) == false) {
+                    return 'Invalid value, please input alphanumeric character including the underscore';
+                }
             },
             success: function(response, newValue) {
                 var id = $(this).data('pk');
@@ -132,8 +133,13 @@ var FormEditable = function () {
                     $('.' + id).removeClass('text-danger');
                     $('.' + id).addClass('text-info');
                     $(this).html(newValue);
+                    $('#' + id).data('pk', newValue);
+
                 }
                 $('.' + id).html(response.msg);
+            },
+            error: function(data) {
+                return 'something when wrong ! Please F5';
             }
         });
 
